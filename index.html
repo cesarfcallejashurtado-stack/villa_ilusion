@@ -28,11 +28,16 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg);
             color: var(--text-dark);
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* --- Header / Navigation --- */
@@ -89,7 +94,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1000px;
+            max-width: 100%;
             padding: 20px;
         }
 
@@ -99,6 +104,7 @@
             line-height: 1.1;
             margin-bottom: 20px;
             text-transform: uppercase;
+            word-wrap: break-word;
         }
 
         .hero p {
@@ -126,6 +132,8 @@
         /* --- Section Styling --- */
         section {
             padding: 100px 10%;
+            width: 100%;
+            overflow: hidden;
         }
 
         .section-header {
@@ -157,6 +165,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            width: 100%;
         }
 
         .feature-card {
@@ -169,6 +178,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
         .feature-card:hover {
@@ -208,6 +218,7 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
             padding: 20px 0;
+            width: 100%;
         }
 
         .gallery-item {
@@ -288,11 +299,14 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
             nav { padding: 20px; }
-            section { padding: 70px 5%; }
-            .gallery-container { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
+            section { padding: 50px 5%; }
+            .gallery-container { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .btn { padding: 12px 25px; font-size: 0.9rem; }
+            nav .logo { font-size: 1.2rem; }
         }
     </style>
 </head>
