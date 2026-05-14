@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Ilusión | Tu lugar de descanso en Chucuni</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            --primary: #0f2a1f;
+            --secondary: #d4a373;
+            --accent: #2d6a4f;
+            --white: #ffffff;
+            --bg: #fdfcfb;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --glass: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+            transition: 0.4s;
+        }
+
+        nav.scrolled {
+            background: rgba(15, 42, 31, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+        }
+
+        .logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Hero Section (Apple Style) --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('FOTOS/1.png') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* --- Grid Features --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(15, 42, 31, 0.1);
+        }
+
+        .feature-card .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .feature-card .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* --- Full Gallery --- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- CTA Buttons --- */
+        .btn {
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(15, 42, 31, 0.2);
+        }
+
+        .btn-maps {
+            background: #4285F4;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* --- Floating WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            nav { padding: 20px; }
+            section { padding: 70px 5%; }
+            .gallery-container { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">VILLA ILUSIÓN</div>
+        <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">RESERVAR</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <p>TU LUGAR DE DESCANSO Y DIVERSION EN CHUCUNI</p>
+            <h1>VILLA ILUSIÓN</h1>
+            <p>Desconéctate del ruido y disfruta en familia a solo minutos de Ibagué.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#detalles" class="btn btn-primary">VER MÁS</a>
+                <a href="https://maps.app.goo.gl/fuNoJLH6GJhQ2Pbu9" target="_blank" class="btn btn-maps">
+                    CÓMO LLEGAR
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+    </section>
+
+    <section id="detalles">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Comodidad y Tranquilidad</h2>
+            <p style="margin-top: 15px; color: var(--text-light);">Un espacio diseñado para que tú y tu familia vivan momentos inolvidables.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Card 1 -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="FOTOS/7.jpeg" class="card-img" alt="Capacidad">
+                <div class="card-content">
+                    <h3>Capacidad</h3>
+                    <p>20 personas. 3 habitaciones amplias (una con AC y baño privado) pensadas para el descanso grupal.</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="FOTOS/2.1.jpeg" class="card-img" alt="Zona Social">
+                <div class="card-content">
+                    <h3>Zona Social</h3>
+                    <p>Piscina con jacuzzi e iluminación nocturna, quiosco y zona de parqueo para 5 vehículos.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="FOTOS/2.2.png" class="card-img" alt="Diversión">
+                <div class="card-content">
+                    <h3>Diversión y Tradición</h3>
+                    <p>Piscina, Jacuzzi, Mini Tejo, Boli Rana y Wi-Fi básico para tu comodidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f0f4f2;">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Nuestra Finca</h2>
+            <p>Explora las instalaciones de Villa Ilusión</p>
+        </div>
+        
+        <div class="gallery-container" id="main-gallery">
+            <!-- Galería generada automáticamente -->
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header" data-aos="fade-up">
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-right">
+                <div class="card-content">
+                    <h3>Políticas de Estancia</h3>
+                    <ul style="text-align: left; list-style: none; color: var(--text-light);">
+                        <li style="margin-bottom: 10px;">🕒 Check-in: 3:00 PM / Check-out: 12:00 PM</li>
+                        <li style="margin-bottom: 10px;">🐾 Se permiten mascotas (responsabilidad de limpieza por parte del huésped).</li>
+                        <li style="margin-bottom: 10px;">🎉 Eventos permitidos hasta las 2:00 AM para respetar la tranquilidad de la zona.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card" data-aos="fade-left">
+                <div class="card-content">
+                    <h3>¿Dónde estamos?</h3>
+                    <p>Vereda Chucuni, a pocos minutos de Ibagué.</p>
+                    <p style="font-size: 0.95rem; color: var(--text-light); margin: 15px 0;">Ven a disfrutar de la vista hacia la montaña y el valle.</p>
+                    <a href="https://maps.app.goo.gl/fuNoJLH6GJhQ2Pbu9" target="_blank" class="btn btn-maps" style="width: 100%;">
+                        ABRIR EN GOOGLE MAPS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>VILLA ILUSIÓN</h2>
+        <p style="margin: 20px 0; opacity: 0.8;">Tu lugar de descanso en Chucuni.</p>
+        <div style="font-size: 0.85rem; opacity: 0.6;">© 2026 Villa Ilusión. Todos los derechos reservados.</div>
+    </footer>
+
+    <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información" class="whatsapp-float" target="_blank">
+        <svg width="35" height="35" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Navbar effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Galería dinámica ordenada numéricamente
+        const rawPhotos = [
+            "1.png", "3.jpeg", "4.jpeg", "5.jpeg", "5.1.jpeg", "6.jpeg", 
+            "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg", "12.jpeg", 
+            "13.jpeg", "14.jpeg", "16.jpeg", "17.jpeg", "18.jpeg", "19.jpeg", 
+            "20.jpeg", "21.jpeg", "22.jpeg", "2.1.jpeg", "2.2.png"
+        ];
+
+        function getSortNumber(name) {
+            const match = name.match(/(\d+(\.\d+)?)/);
+            return match ? parseFloat(match[0]) : 999;
+        }
+
+        const sortedPhotos = rawPhotos.sort((a, b) => getSortNumber(a) - getSortNumber(b));
+
+        const galleryEl = document.getElementById('main-gallery');
+        sortedPhotos.forEach((photo, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.setAttribute('data-aos', 'zoom-in');
+            item.setAttribute('data-aos-delay', (index % 4) * 100);
+            item.innerHTML = `<img src="FOTOS/${photo}" alt="Villa Ilusión ${photo}">`;
+            galleryEl.appendChild(item);
+        });
+    </script>
+</body>
+</html>
