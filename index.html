@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Villa Ilusión | Tu lugar de descanso en Chucuni</title>
-    
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    
+
     <style>
         :root {
             --primary: #0f2a1f;
@@ -28,7 +29,8 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
+        html,
+        body {
             overflow-x: hidden;
             width: 100%;
         }
@@ -50,7 +52,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
             transition: 0.4s;
         }
 
@@ -88,7 +90,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
         }
 
         .hero-content {
@@ -124,9 +126,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-            40% {transform: translateY(-10px) translateX(-50%);}
-            60% {transform: translateY(-5px) translateX(-50%);}
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
         }
 
         /* --- Section Styling --- */
@@ -171,7 +186,7 @@
         .feature-card {
             background: white;
             border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
             transition: 0.3s;
             text-align: center;
             border: 1px solid #f0f0f0;
@@ -299,22 +314,51 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            nav { padding: 20px; }
-            section { padding: 50px 5%; }
-            .gallery-container { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .btn { padding: 12px 25px; font-size: 0.9rem; }
-            nav .logo { font-size: 1.2rem; }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            nav .logo {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav id="navbar">
         <div class="logo">VILLA ILUSIÓN</div>
-        <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">RESERVAR</a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="precios.html" style="color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s;" onmouseover="this.style.color='#d4a373'" onmouseout="this.style.color='white'">Tarifas</a>
+            <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
+                class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">RESERVAR</a>
+        </div>
     </nav>
 
     <section class="hero">
@@ -324,20 +368,24 @@
             <p>Desconéctate del ruido y disfruta en familia a solo minutos de Ibagué.</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="#detalles" class="btn btn-primary">VER MÁS</a>
+                <a href="precios.html" class="btn btn-primary" style="background-color: var(--secondary); color: var(--primary);">VER TARIFAS</a>
                 <a href="https://maps.app.goo.gl/fuNoJLH6GJhQ2Pbu9" target="_blank" class="btn btn-maps">
                     CÓMO LLEGAR
                 </a>
             </div>
         </div>
         <div class="scroll-indicator">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
         </div>
     </section>
 
     <section id="detalles">
         <div class="section-header" data-aos="fade-up">
             <h2>Comodidad y Tranquilidad</h2>
-            <p style="margin-top: 15px; color: var(--text-light);">Un espacio diseñado para que tú y tu familia vivan momentos inolvidables.</p>
+            <p style="margin-top: 15px; color: var(--text-light);">Un espacio diseñado para que tú y tu familia vivan
+                momentos inolvidables.</p>
         </div>
 
         <div class="features-grid">
@@ -346,7 +394,8 @@
                 <img src="FOTOS/7.jpeg" class="card-img" alt="Capacidad">
                 <div class="card-content">
                     <h3>Capacidad</h3>
-                    <p>20 personas. 3 habitaciones amplias (una con AC y baño privado) pensadas para el descanso grupal.</p>
+                    <p>20 personas. 3 habitaciones amplias (una con AC y baño privado) pensadas para el descanso grupal.
+                    </p>
                 </div>
             </div>
             <!-- Card 2 -->
@@ -373,7 +422,7 @@
             <h2>Nuestra Finca</h2>
             <p>Explora las instalaciones de Villa Ilusión</p>
         </div>
-        
+
         <div class="gallery-container" id="main-gallery">
             <!-- Galería generada automáticamente -->
         </div>
@@ -389,8 +438,10 @@
                     <h3>Políticas de Estancia</h3>
                     <ul style="text-align: left; list-style: none; color: var(--text-light);">
                         <li style="margin-bottom: 10px;">🕒 Check-in: 4:00 PM / Check-out: 2:00 PM</li>
-                        <li style="margin-bottom: 10px;">🐾 Se permiten mascotas (responsabilidad de limpieza por parte del huésped).</li>
-                        <li style="margin-bottom: 10px;">🎉 Eventos permitidos hasta las 2:00 AM para respetar la tranquilidad de la zona.</li>
+                        <li style="margin-bottom: 10px;">🐾 Se permiten mascotas (responsabilidad de limpieza por parte
+                            del huésped).</li>
+                        <li style="margin-bottom: 10px;">🎉 Eventos permitidos hasta las 2:00 AM para respetar la
+                            tranquilidad de la zona.</li>
                     </ul>
                 </div>
             </div>
@@ -398,8 +449,10 @@
                 <div class="card-content">
                     <h3>¿Dónde estamos?</h3>
                     <p>Vereda Chucuni, a pocos minutos de Ibagué.</p>
-                    <p style="font-size: 0.95rem; color: var(--text-light); margin: 15px 0;">Ven a disfrutar de la vista hacia la montaña y el valle.</p>
-                    <a href="https://maps.app.goo.gl/fuNoJLH6GJhQ2Pbu9" target="_blank" class="btn btn-maps" style="width: 100%;">
+                    <p style="font-size: 0.95rem; color: var(--text-light); margin: 15px 0;">Ven a disfrutar de la vista
+                        hacia la montaña y el valle.</p>
+                    <a href="https://maps.app.goo.gl/fuNoJLH6GJhQ2Pbu9" target="_blank" class="btn btn-maps"
+                        style="width: 100%;">
                         ABRIR EN GOOGLE MAPS
                     </a>
                 </div>
@@ -413,8 +466,12 @@
         <div style="font-size: 0.85rem; opacity: 0.6;">© 2026 Villa Ilusión. Todos los derechos reservados.</div>
     </footer>
 
-    <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información" class="whatsapp-float" target="_blank">
-        <svg width="35" height="35" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z"/></svg>
+    <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
+        class="whatsapp-float" target="_blank">
+        <svg width="35" height="35" fill="white" viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z" />
+        </svg>
     </a>
 
     <!-- Scripts -->
@@ -431,10 +488,10 @@
 
         // Galería dinámica ordenada numéricamente
         const rawPhotos = [
-            "1.png", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", 
-            "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg", "12.jpeg", 
-            "13.jpeg", "14.jpeg", "16.jpeg", "17.jpeg", "18.jpeg", "19.jpeg", 
-            "20.jpeg", "21.jpeg", "22.jpeg", "2.1.jpeg", "2.2.png", "23.png"
+            "1.png", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg",
+            "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg", "12.jpeg",
+            "13.jpeg", "14.jpeg", "16.jpeg", "17.jpeg", "18.jpeg", "19.jpeg",
+            "20.png", "21.jpeg", "2.1.jpeg", "2.2.png", "23.png"
         ];
 
         function getSortNumber(name) {
@@ -455,4 +512,5 @@
         });
     </script>
 </body>
+
 </html>
