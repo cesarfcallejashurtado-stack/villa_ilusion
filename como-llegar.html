@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo llegar a Villa Ilusión | Ruta, Mapa y Ubicación</title>
+    <meta name="description" content="Guía detallada de cómo llegar a Villa Ilusión en la vereda Chucuní, Tolima. Incluye video del recorrido paso a paso, mapa de la ruta y accesos rápidos en Google Maps y Waze.">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        :root {
+            --primary: #0f2a1f;
+            --primary-light: #1a4a35;
+            --secondary: #d4a373;
+            --secondary-light: #e6c5a3;
+            --accent: #2d6a4f;
+            --accent-light: #40916c;
+            --white: #ffffff;
+            --bg: #fdfcfb;
+            --bg-card: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #555555;
+            --border-color: #eaeaea;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 30px rgba(15, 42, 31, 0.05);
+            --shadow-lg: 0 20px 40px rgba(15, 42, 31, 0.08);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Header / Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 42, 31, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-link {
+            text-decoration: none;
+        }
+
+        .logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+
+        /* --- Hero / Header Section --- */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #06120e 100%);
+            color: white;
+            padding: 160px 10% 80px 10%;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('FOTOS/1.png') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .welcome-badge {
+            background: rgba(212, 163, 115, 0.2);
+            border: 1px solid var(--secondary);
+            color: var(--secondary-light);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- Content Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* --- Option Section Title --- */
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        /* --- Media Card (Video + Desc) --- */
+        .video-container {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            margin-bottom: 80px;
+            transition: transform 0.3s;
+        }
+
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-side {
+            background: #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+
+        .video-side video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border: none;
+        }
+
+        .video-desc-side {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-desc-side h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .video-desc-side p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .route-instructions {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .route-instructions li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-size: 0.98rem;
+        }
+
+        .route-instructions li::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* --- Map Card --- */
+        .map-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .map-img-container {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin: 25px 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .map-img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            transition: transform 0.5s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .map-img-container:hover .map-img {
+            transform: scale(1.03);
+        }
+
+        /* --- Action Buttons (Waze + Maps) --- */
+        .maps-buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-navigation {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-waze {
+            background-color: #33ccff;
+            color: #1a1a1a;
+        }
+
+        .btn-waze:hover {
+            background-color: #55d6ff;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-gmaps {
+            background-color: #4285F4;
+            color: white;
+        }
+
+        .btn-gmaps:hover {
+            background-color: #5c97f5;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-navigation svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* --- Call To Action Section --- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #06120e 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('FOTOS/1.png') center/cover no-repeat;
+            opacity: 0.08;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* --- General Buttons --- */
+        .btn {
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            box-shadow: 0 10px 20px rgba(212, 163, 115, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- Floating WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 992px) {
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+            .video-side {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 25px;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+            .page-header {
+                padding: 120px 5% 50px 5%;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .page-header p {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 40px 15px;
+            }
+            .video-desc-side {
+                padding: 30px 20px;
+            }
+            .video-desc-side h3 {
+                font-size: 1.6rem;
+            }
+            .map-card {
+                padding: 20px 15px;
+            }
+            .btn-navigation {
+                width: 100%;
+                justify-content: center;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            footer {
+                padding: 40px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo-link"><div class="logo">VILLA ILUSIÓN</div></a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="precios.html" class="nav-link">Tarifas</a>
+            <a href="como-llegar.html" class="nav-link">Cómo Llegar</a>
+            <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
+                class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem; width: auto;">Reservar Ya</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-content" data-aos="fade-up">
+            <span class="welcome-badge">Ruta y Ubicación</span>
+            <h1>¿Cómo llegar a Villa Ilusión?</h1>
+            <p>Ubicada en la vereda Chucuní, Tolima. Te explicamos el recorrido detalladamente para tu comodidad.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- SECCIÓN VIDEO -->
+        <section style="padding: 0; margin-bottom: 80px;" data-aos="fade-up">
+            <h2 class="section-title">📹 Video Guía del Recorrido</h2>
+            <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.05rem;">
+                Visualiza el trayecto paso a paso en este video instructivo para que conozcas la vía de acceso y los puntos clave antes de salir de viaje.
+            </p>
+
+            <div class="video-container">
+                <div class="video-side">
+                    <video id="intro-video" controls preload="metadata">
+                        <source src="videos como llegar/Como llegar villa ilusion.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video en formato MP4.
+                    </video>
+                </div>
+                <div class="video-desc-side">
+                    <h3>Puntos Clave del Viaje</h3>
+                    <p>La vereda Chucuní se caracteriza por su clima agradable y naturaleza exuberante. Sigue estas recomendaciones:</p>
+                    <ul class="route-instructions">
+                        <li>El acceso está disponible para todo tipo de vehículos.</li>
+                        <li>Se encuentra a escasos minutos de la vía principal de Ibagué.</li>
+                        <li>Sigue las indicaciones físicas de la carretera y el video guía en los cruces importantes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MAPA -->
+        <section style="padding: 0; margin-bottom: 80px;" data-aos="fade-up">
+            <h2 class="section-title">🗺️ Mapa y Ubicación Satelital</h2>
+            <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.05rem;">
+                Te compartimos la imagen del mapa de acceso detallado a la finca. Haz clic sobre el mapa para abrirlo en tamaño completo.
+            </p>
+
+            <div class="map-card">
+                <h3>Esquema de Ruta</h3>
+                <div class="map-img-container" id="map-container">
+                    <img src="FOTOS/mapa villa ilusion.png" class="map-img" alt="Mapa de acceso a Villa Ilusión">
+                </div>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px;">
+                    Selecciona tu aplicación de navegación preferida a continuación para iniciar la ruta en tiempo real hacia la finca.
+                </p>
+
+                <div class="maps-buttons-container">
+                    <!-- BOTÓN WAZE -->
+                    <a href="https://waze.com/ul?ll=4.4652715,-75.0594607&navigate=yes" target="_blank" class="btn-navigation btn-waze" id="btn-waze-nav">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.3 14.8c-.4.2-.8.3-1.3.3-1.1 0-2-.8-2.1-1.9H11c-.1 1.1-1 1.9-2.1 1.9-.5 0-.9-.1-1.3-.3-.4-.2-.6-.6-.6-1.1v-.6c.7-.6 1.6-.9 2.6-.9h4.8c1 0 1.9.3 2.6.9v.6c0 .5-.2.9-.6 1.1zm.7-4.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm-8 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z" />
+                        </svg>
+                        Navegar con Waze
+                    </a>
+
+                    <!-- BOTÓN GOOGLE MAPS -->
+                    <a href="https://maps.app.goo.gl/4bigxn3rbDp5UCfS6" target="_blank" class="btn-navigation btn-gmaps" id="btn-gmaps-nav">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section style="padding: 0;" data-aos="fade-up">
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2>¿Tienes alguna duda sobre la ruta?</h2>
+                    <p>Si necesitas asistencia personalizada para llegar o deseas confirmar tu hora de ingreso, contáctanos de inmediato por WhatsApp.</p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://wa.me/573143614878?text=Hola!%20Tengo%20una%20duda%20sobre%20cómo%20llegar%20a%20Villa%20Ilusión." target="_blank" class="btn btn-primary">Hablar con un Asesor</a>
+                        <a href="index.html" class="btn btn-outline">Volver al Inicio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h2>VILLA ILUSIÓN</h2>
+        <p style="margin: 20px 0; opacity: 0.8;">Tu lugar de descanso en Chucuní, Tolima.</p>
+        <div style="font-size: 0.85rem; opacity: 0.6;">© 2026 Villa Ilusión. Todos los derechos reservados.</div>
+    </footer>
+
+    <!-- Floating WhatsApp button -->
+    <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
+        class="whatsapp-float" target="_blank">
+        <svg width="35" height="35" fill="white" viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z" />
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Abre la imagen del mapa en pantalla completa / nueva pestaña al hacer clic
+        document.getElementById('map-container').addEventListener('click', function() {
+            window.open('FOTOS/mapa villa ilusion.png', '_blank');
+        });
+    </script>
+</body>
+
+</html>
