@@ -530,21 +530,8 @@
             </p>
 
             <div class="video-container">
-                <div class="video-side" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
-                    <a href="https://youtube.com/shorts/ita70Rh98Sc" target="_blank" style="text-decoration: none; width: 100%; max-width: 310px; display: block;" id="youtube-short-link">
-                        <div style="width: 100%; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 8px solid #1a1a1a; position: relative; background: url('https://img.youtube.com/vi/ita70Rh98Sc/hqdefault.jpg') center/cover no-repeat; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; transition: 0.3s;">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(212, 163, 115, 0.5); transition: 0.3s;">
-                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="#0f2a1f">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://youtube.com/shorts/ita70Rh98Sc" target="_blank" style="margin-top: 15px; color: #d4a373; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#d4a373'">
-                        📺 Abrir video en la aplicación de YouTube
-                    </a>
+                <div class="video-side" id="video-player-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+                    <!-- Se cargará dinámicamente el reproductor adecuado -->
                 </div>
                 <div class="video-desc-side">
                     <h3>Puntos Clave del Viaje</h3>
@@ -629,6 +616,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // Detección dinámica de entorno local vs web para reproducción correcta
+        const videoContainer = document.getElementById('video-player-container');
+        if (window.location.protocol === 'file:') {
+            // Entorno local: Reproducción directa del archivo MP4 local
+            videoContainer.innerHTML = `
+                <div style="width: 100%; max-width: 310px; margin: 0 auto; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 8px solid #1a1a1a; background: #000;">
+                    <video width="100%" height="100%" controls style="display: block; object-fit: cover;">
+                        <source src="videos como llegar/Como llegar villa ilusion.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video local.
+                    </video>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: var(--secondary); font-weight: 600;">📁 Reproduciendo desde archivo local</p>
+            `;
+        } else {
+            // Entorno web/Vercel: Reproducción desde el reproductor embebido de YouTube
+            videoContainer.innerHTML = `
+                <div style="width: 100%; max-width: 310px; margin: 0 auto; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 8px solid #1a1a1a;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ita70Rh98Sc?rel=0&enablejsapi=1" title="Cómo llegar a Villa Ilusión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen style="display: block; width: 100%; height: 100%;"></iframe>
+                </div>
+                <a href="https://youtube.com/shorts/ita70Rh98Sc" target="_blank" style="margin-top: 15px; color: #d4a373; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#d4a373'">
+                    📺 Abrir en la app de YouTube (Opcional)
+                </a>
+            `;
+        }
 
         // Abre la imagen del mapa en pantalla completa / nueva pestaña al hacer clic
         document.getElementById('map-container').addEventListener('click', function() {
