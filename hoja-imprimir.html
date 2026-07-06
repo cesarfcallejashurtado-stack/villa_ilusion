@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja para Imprimir | Villa Ilusión</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos generales orientados a impresión */
+        :root {
+            --primary: #0f2a1f;
+            --secondary: #d4a373;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Contenedor que simula una hoja de papel (Tamaño Carta / A4) */
+        .page-container {
+            background-color: #ffffff;
+            width: 21cm;
+            min-height: 27.9cm; /* Carta es 27.9cm */
+            padding: 1.5cm; /* Reducido para ganar espacio */
+            margin: 1cm auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        /* --- Tipografía y Títulos --- */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px; /* Reducido */
+            margin-bottom: 15px; /* Reducido */
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.2rem; /* Reducido */
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header h2 {
+            color: var(--secondary);
+            font-size: 1.2rem; /* Reducido */
+            margin: 5px 0 0 0;
+            font-weight: 600;
+        }
+
+        /* --- Secciones de Información --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; /* Reducido */
+            margin-bottom: 15px; /* Reducido */
+        }
+
+        .info-block {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px; /* Reducido */
+            page-break-inside: avoid;
+        }
+
+        .info-block.full-width {
+            grid-column: span 2;
+        }
+
+        .info-block h3 {
+            color: var(--primary);
+            font-size: 1.15rem; /* Reducido */
+            margin-top: 0;
+            margin-bottom: 10px; /* Reducido */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 8px;
+        }
+
+        .info-block p, .info-block ul, .info-block ol {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem; /* Letra un poco más pequeña */
+            line-height: 1.4;
+        }
+
+        .info-block ul, .info-block ol {
+            padding-left: 20px;
+        }
+
+        .highlight-data {
+            background-color: #f8f8f8;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            border-left: 4px solid var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Configuración exclusiva para imprimir --- */
+        @media print {
+            body { background-color: #ffffff; }
+            .page-container {
+                margin: 0;
+                padding: 1cm;
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                min-height: auto;
+            }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <div class="header">
+            <h1>Villa Ilusión</h1>
+            <h2>Información Importante para tu Estadía</h2>
+        </div>
+
+        <div class="grid-layout">
+
+            <!-- Conexión WiFi -->
+            <div class="info-block">
+                <h3>📶 Conexión Wi-Fi</h3>
+                <p>Al ser una conexión rural, el ancho de banda es limitado. Agradecemos tu comprensión.</p>
+                <div style="text-align: center; margin-top: 10px;">
+                    <div class="highlight-data" style="display: inline-block; text-align: left; margin-bottom: 10px;">
+                        Red: <strong>VILLA ILUSION</strong><br>
+                        Clave: <strong>Nohayinternet</strong>
+                    </div>
+                    <div>
+                        <img src="QR_WIFI1.png" alt="QR WiFi" style="width: 140px; height: 140px; border-radius: 10px; border: 1px solid #ccc; padding: 5px; background: white; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bluetooth / Sonido -->
+            <div class="info-block">
+                <h3>🎵 Parlante Bluetooth</h3>
+                <p>Para conectar tu música:</p>
+                <ul>
+                    <li>Enciende el parlante ubicado en la zona social.</li>
+                    <li>Pueden cambiar el mode del parlante de emisora a Bluetooth</li>
+                    <li>Busca el dispositivo <strong>"ASM-21B12V"</strong> y conéctate.</li>
+                    <li><em>Por favor modera el volumen después de las 10:00 PM.</em></li>
+                </ul>
+            </div>
+
+            <!-- Piscina y Jacuzzi -->
+            <div class="info-block full-width">
+                <h3>🏊 Uso de Piscina y Jacuzzi</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <ul>
+                        <li>Antes de ingresar a la piscina se recomienda <strong>ducharse</strong>.</li>
+                        <li>En caso de ingresar balones, flotadores y demás, por favor asegúrate de que estén limpios.</li>
+                        <li>Totalmente prohibido ingresar vasos, botellas de vidrio o alimentos al agua.</li>
+                        <li>Los niños deben estar bajo supervisión de un adulto en todo momento.</li>
+                    </ul>
+                    <div>
+                        <strong style="display:block; margin-bottom: 5px; font-size: 0.95rem;">Botones en el suelo de la piscina:</strong>
+                        <ol>
+                            <li>Habilita los chorros.</li>
+                            <li>Habilita el jacuzzi.</li>
+                            <li>Prende las luces internas de la piscina.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reglas de la Casa -->
+            <div class="info-block full-width">
+                <h3>📜 Reglas de la Casa</h3>
+                <ul>
+                    <li><strong>Check-in / Check-out:</strong> La hora de entrada es a las <strong>2:30 PM</strong> y la de salida es a las <strong>12:00 M</strong>. Asegúrate de entregar las llaves a la persona encargada.</li>
+                    <li><strong>Ruido y Música:</strong> Por respeto a los vecinos, modera el volumen de la música
+                        después de las 10:00 PM. Eventos permitidos máximo hasta las 2:00 AM.</li>
+                    <li><strong>Aseo y Basuras:</strong> En la cocina hay dos canecas: una para <strong>residuos orgánicos</strong> (ej. restos de comida, cáscaras) y otra para <strong>residuos no aprovechables</strong> (ej. servilletas sucias, empaques). Por favor separa la basura correctamente.</li>
+                    <li><strong>Mascotas:</strong> Son bienvenidas, pero eres responsable de recoger sus desechos y de
+                        cualquier daño que puedan causar.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="info-block full-width">
+            <h3>📞 Contactos Útiles</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <ul style="list-style: none; padding: 0;">
+                    <li>👨‍💼 <strong>Administrador:</strong> César Callejas - 314 361 4878</li>
+                    <li>👷‍♂️ <strong>Colaborador:</strong> Julio Callejas - 312 313 4314</li>
+                </ul>
+                <ul style="list-style: none; padding: 0;">
+                    <li>🥤 <strong>Domicilio Bebidas:</strong> 313 578 1239</li>
+                    <li>🍔 <strong>Domicilio Parrilla Express:</strong> 314 246 5030</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            ¡Gracias por elegirnos! Esperamos que disfrutes tu estadía en Villa Ilusión.
+        </div>
+
+    </div>
+
+    <!-- Script opcional para mostrar un botón de imprimir (solo visible en pantalla) -->
+    <div class="no-print" style="position: fixed; bottom: 20px; right: 20px;">
+        <button onclick="window.print()"
+            style="padding: 15px 30px; font-size: 1.1rem; background-color: var(--primary); color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-family: 'Outfit', sans-serif;">
+            🖨️ Imprimir esta hoja
+        </button>
+    </div>
+
+</body>
+
+</html>

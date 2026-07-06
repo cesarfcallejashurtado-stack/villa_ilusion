@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Huésped | Villa Ilusión</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        :root {
+            --primary: #0f2a1f;
+            --secondary: #d4a373;
+            --accent: #2d6a4f;
+            --white: #ffffff;
+            --bg: #fdfcfb;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Header / Navigation --- */
+        nav {
+            background: var(--primary);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        nav a.nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a.nav-link:hover {
+            color: var(--secondary);
+        }
+
+        /* --- Main Content --- */
+        .header-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(to bottom, #eef2f0, #fdfcfb);
+        }
+
+        .header-section h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            color: var(--text-light);
+        }
+
+        .info-card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: #f8fbf9;
+            border: 1px solid #e0ebe4;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">VILLA ILUSIÓN</a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="precios.html" class="nav-link">Tarifas</a>
+            <a href="como-llegar.html" class="nav-link">Cómo Llegar</a>
+        </div>
+    </nav>
+
+    <div class="header-section" data-aos="fade-down">
+        <h1>Guía del Huésped</h1>
+        <p>Toda la información que necesitas para una estadía perfecta</p>
+    </div>
+
+    <div class="container">
+        <div class="grid-info">
+
+            <!-- Conexión WiFi -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>📶 Conexión Wi-Fi</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Mantente conectado durante tu estadía.</p>
+                <div class="highlight-box">
+                    <strong>Red:</strong> VILLA ILUSION<br>
+                    <strong>Contraseña:</strong> Nohayinternet
+                </div>
+            </div>
+
+            <!-- Bluetooth / Sonido -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>🎵 Música y Sonido</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Cómo conectar tus dispositivos al parlante de
+                    la finca.</p>
+                <ul>
+                    <li>Enciende el parlante ubicado en la zona social.</li>
+                    <li>Activa el Bluetooth en tu celular.</li>
+                    <li>Busca el dispositivo <strong>"ASM-21B12V"</strong> y conéctate.</li>
+                    <li>Mantén un volumen moderado, especialmente de noche.</li>
+                </ul>
+            </div>
+
+            <!-- Piscina y Jacuzzi -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>🏊‍♂️ Uso de Piscina</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Reglas para disfrutar del agua de forma
+                    segura.</p>
+                <ul>
+                    <li><strong>Horario:</strong> 8:00 AM a 10:00 PM.</li>
+                    <li>Es obligatorio ducharse antes de ingresar.</li>
+                    <li>No ingresar botellas o vasos de vidrio a la piscina.</li>
+                    <li>Los niños deben estar siempre bajo supervisión de un adulto.</li>
+                </ul>
+            </div>
+
+            <!-- Reglas de la Casa -->
+            <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>📜 Reglas de la Casa</h3>
+                <p style="color: var(--text-light); margin-bottom: 15px;">Para asegurar la tranquilidad de todos.</p>
+                <ul>
+                    <li><strong>Check-in:</strong> Ingreso a partir de las 2:30 PM.</li>
+                    <li><strong>Check-out:</strong> Entregar la finca a las 12:00 M.</li>
+                    <li><strong>Ruido:</strong> Moderar el volumen de la música después de las 10:00 PM (eventos hasta
+                        las 2:00 AM).</li>
+                    <li><strong>Basuras:</strong> Depositar la basura en las canecas dispuestas para ello.</li>
+                    <li><strong>Mascotas:</strong> Son bienvenidas, pero eres responsable de recoger sus desechos.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <h2 style="font-size: 1.5rem; margin-bottom: 10px;">VILLA ILUSIÓN</h2>
+        <div style="font-size: 0.85rem; opacity: 0.6;">© 2026 Villa Ilusión. Todos los derechos reservados.</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+
+</html>
