@@ -18,6 +18,7 @@
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <style>
         :root {
@@ -90,6 +91,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
@@ -170,7 +172,7 @@
         .option-section-title {
             font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -196,7 +198,7 @@
             overflow: hidden;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             transition: transform 0.3s;
         }
 
@@ -295,11 +297,11 @@
             font-size: 1.2rem;
         }
 
-        /* --- Option 2 Section (Individual Rooms) --- */
+        /* --- Habitaciones Grid --- */
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 40px;
         }
 
@@ -319,154 +321,397 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .room-img-container {
-            position: relative;
-            height: 240px;
-            background-color: #eaeaea;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .room-img-placeholder {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f3ede6 0%, #e2d4c5 100%);
-            color: var(--primary);
-            text-align: center;
-            padding: 20px;
-        }
-
-        .room-img-placeholder svg {
-            margin-bottom: 10px;
-            opacity: 0.7;
-        }
-
         .room-img {
             width: 100%;
-            height: 100%;
+            height: 220px;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            /* Oculta por defecto hasta que exista */
-            transition: opacity 0.3s;
-        }
-
-        .room-img.loaded {
-            opacity: 1;
-        }
-
-        .room-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            z-index: 10;
-        }
-
-        .room-badge.econ {
-            background-color: #2a6f43;
-        }
-
-        .room-badge.prem {
-            background-color: #8c1c1c;
-        }
-
-        .room-badge.std {
-            background-color: #bfa322;
         }
 
         .room-content {
-            padding: 30px;
+            padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .room-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
-        .room-capacity {
-            font-size: 0.9rem;
+        .room-badge-pill {
+            display: inline-block;
+            background: rgba(212, 163, 115, 0.18);
+            color: #9c6c3e;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .room-specs-list {
+            list-style: none;
+            margin: 15px 0 0 0;
+            padding: 0;
+        }
+
+        .room-specs-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 0.92rem;
             color: var(--text-light);
-            margin-bottom: 15px;
+        }
+
+        .room-specs-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .baths-banner {
+            background: linear-gradient(135deg, #f0f7f3 0%, #e6f0ea 100%);
+            border: 2px solid #d2e4d9;
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 60px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 20px;
         }
 
-        .room-desc {
-            color: var(--text-light);
+        /* --- Qué incluye vs Qué traer --- */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .checklist-card {
+            background: white;
+            border-radius: 22px;
+            padding: 35px;
+            border: 1px solid #eef0ee;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+        }
+
+        .checklist-card.included {
+            border-top: 5px solid var(--accent);
+        }
+
+        .checklist-card.bring {
+            border-top: 5px solid var(--secondary);
+        }
+
+        .checklist-items {
+            list-style: none;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        .checklist-items li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
             font-size: 0.98rem;
+            color: #333333;
             line-height: 1.5;
-            margin-bottom: 20px;
-            flex-grow: 1;
         }
 
-        .room-price-box {
-            background-color: #fcfbf9;
-            border: 1px solid #f2ece4;
-            border-radius: var(--radius-md);
-            padding: 15px 20px;
-            margin-top: auto;
-        }
-
-        .room-price-val {
-            font-size: 1.6rem;
-            font-weight: 800;
+        .checklist-card.included .checklist-items li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
             color: var(--accent);
+            font-weight: 900;
+            font-size: 1.1rem;
         }
 
-        .room-price-val span {
+        .checklist-card.bring .checklist-items li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 900;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* --- Flatpickr Custom Theme --- */
+        .flatpickr-calendar {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(15, 42, 31, 0.15);
+            border: 1px solid #e5ebe7;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .flatpickr-months {
+            background: var(--primary);
+            color: white;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            padding: 10px 0;
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months,
+        .flatpickr-current-month input.cur-year {
+            color: white;
+            font-weight: 700;
+        }
+
+        .flatpickr-monthDropdown-months option {
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .flatpickr-months .flatpickr-prev-month,
+        .flatpickr-months .flatpickr-next-month {
+            color: white;
+            fill: white;
+        }
+
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: var(--secondary);
+        }
+
+        span.flatpickr-weekday {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
+        }
+
+        .flatpickr-day.selected,
+        .flatpickr-day.startRange,
+        .flatpickr-day.endRange {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+            color: white !important;
+            font-weight: 700;
+        }
+
+        .flatpickr-day.inRange {
+            background: rgba(45, 106, 79, 0.18) !important;
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .flatpickr-day.flatpickr-disabled,
+        .flatpickr-day.flatpickr-disabled:hover {
+            color: #d1d5db !important;
+            text-decoration: line-through;
+            background: #f9fafb !important;
+            cursor: not-allowed !important;
+        }
+
+        /* --- Cotizador Section --- */
+        .cotizador-wrapper {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(15, 42, 31, 0.08);
+            border: 1px solid #eef2ef;
+            padding: 45px;
+            margin-bottom: 60px;
+        }
+
+        .sync-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5ee;
+            color: #2d6a4f;
+            padding: 6px 16px;
+            border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 25px;
+            border: 1px solid #c9e5d4;
         }
 
-        .room-price-min {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            margin-top: 4px;
-            border-top: 1px solid #f2ece4;
-            padding-top: 4px;
+        .sync-dot {
+            width: 9px;
+            height: 9px;
+            background: #25d366;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            animation: pulse-green 2s infinite;
         }
 
-        .room-notes-alert {
-            background: #fff8eb;
-            border-left: 4px solid #f39c12;
-            padding: 20px;
-            border-radius: var(--radius-md);
-            margin-top: 30px;
-            color: #7d5a29;
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .cotizador-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .cotizador-form-group {
+            margin-bottom: 22px;
+        }
+
+        .cotizador-label {
+            display: block;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
             font-size: 0.95rem;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
         }
 
-        /* --- Policies and Rules (Tabs or side-by-side) --- */
+        .cotizador-input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid #e2e8e4;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: 0.3s;
+            background: #fafcfb;
+        }
+
+        .cotizador-input:focus {
+            border-color: var(--accent);
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+        }
+
+        .guest-counter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fafcfb;
+            border: 2px solid #e2e8e4;
+            border-radius: 12px;
+            padding: 8px 14px;
+        }
+
+        .counter-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .counter-btn:hover:not(:disabled) {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .counter-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .counter-val {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .cotizador-summary-card {
+            background: linear-gradient(145deg, #0f2a1f 0%, #061510 100%);
+            color: white;
+            padding: 35px 30px;
+            border-radius: 22px;
+            box-shadow: 0 20px 40px rgba(15, 42, 31, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cotizador-summary-card::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .summary-total {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed rgba(212, 163, 115, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .total-number {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .btn-whatsapp-booking {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: #25d366;
+            color: white;
+            padding: 16px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+        }
+
+        .btn-whatsapp-booking:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+        }
+
+        /* --- Policies and Rules --- */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .info-card {
@@ -519,7 +764,7 @@
             border-radius: var(--radius-lg);
             padding: 60px 40px;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 60px;
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
@@ -624,6 +869,11 @@
             margin-top: 80px;
         }
 
+        /* --- Mobile Sticky Bottom Bar --- */
+        .mobile-sticky-bar {
+            display: none;
+        }
+
         /* Responsive styling */
         @media (max-width: 992px) {
             .villa-full-card {
@@ -641,7 +891,7 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 15px 25px;
+                padding: 15px 20px;
             }
 
             .logo {
@@ -683,12 +933,83 @@
                 text-align: center;
             }
 
-            .room-card {
-                max-width: 100%;
-            }
-
             footer {
                 padding: 40px 5%;
+            }
+
+            .mobile-sticky-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 42, 31, 0.97);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(255, 255, 255, 0.12);
+                padding: 12px 18px;
+                z-index: 999;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+            }
+
+            .mobile-sticky-info {
+                color: white;
+            }
+
+            .mobile-sticky-info .price-tag {
+                font-weight: 800;
+                color: var(--secondary);
+                font-size: 1.05rem;
+                display: block;
+            }
+
+            .mobile-sticky-info .sub-tag {
+                font-size: 0.75rem;
+                opacity: 0.85;
+            }
+
+            .mobile-sticky-btn {
+                background: #25d366;
+                color: white;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 0.88rem;
+                padding: 10px 18px;
+                border-radius: 50px;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+
+            body {
+                padding-bottom: 70px;
+            }
+
+            .whatsapp-float {
+                bottom: 85px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .cotizador-wrapper {
+                padding: 25px 18px;
+            }
+
+            .cotizador-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .baths-banner {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -702,10 +1023,11 @@
         </a>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Inicio</a>
-            <a href="precios.html" class="nav-link">Tarifas</a>
+            <a href="#cotizador" class="nav-link">Cotizador</a>
+            <a href="#habitaciones" class="nav-link">Habitaciones</a>
+            <a href="precios.html" class="nav-link" style="color: var(--secondary);">Tarifas</a>
             <a href="como-llegar.html" class="nav-link">Cómo Llegar</a>
-            <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
-                class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem; width: auto;">Reservar Ya</a>
+            <a href="#cotizador" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem; width: auto;">Cotizar Ya</a>
         </div>
     </nav>
 
@@ -713,20 +1035,19 @@
         <div class="header-content" data-aos="fade-up">
             <span class="welcome-badge">Bienvenidos a Villa Ilusión</span>
             <h1>Tarifas y Reserva</h1>
-            <p>Chucuní, Tolima — Tu paraíso de descanso y diversión. Conoce nuestras modalidades de alquiler oficiales.
-            </p>
+            <p>Chucuní, Tolima — Tu paraíso de descanso y diversión. Conoce nuestras modalidades de alquiler oficiales.</p>
         </div>
     </header>
 
     <main class="container">
 
         <!-- VILLA COMPLETA -->
-        <section style="padding: 0; margin-bottom: 80px;" data-aos="fade-up">
+        <section style="padding: 0; margin-bottom: 60px;" data-aos="fade-up">
             <h2 class="option-section-title">🏡 Alquiler de la Villa Completa</h2>
             <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.05rem;">
                 Disfruta de la privacidad absoluta de toda el primer nivel de la propiedad. La reserva te da acceso
                 exclusivo y privado a las 3 habitaciones, cocina totalmente equipada, piscina con playa para niños,
-                jacuzzi con hidromasajes, chorros de cascada, kiosko social, bolirana.
+                jacuzzi con hidromasajes, chorros de cascada, quiosco social, bolirana.
             </p>
 
             <div class="villa-full-card">
@@ -748,21 +1069,269 @@
                             <li><strong>Acomodación mínima:</strong> 10 personas por valor de $600.000 COP la noche</li>
                             <li><strong>Huésped adicional (a partir de la número 11 en adelante):</strong> $50.000 COP
                                 por noche (capacidad máxima de hasta 20 personas)</li>
-                            <li>3 Habitaciones amplias y equipadas</li>
-                            <li>Cocina totalmente equipada</li>
+                            <li>3 Habitaciones amplias y equipadas con lencería limpia</li>
+                            <li>Cocina totalmente equipada + Asador a carbón + Fogón de leña</li>
                             <li>Piscina con playa para niños y cascada</li>
                             <li>Jacuzzi con hidromasajes</li>
-                            <li>Kiosko social amplio</li>
-                            <li>Cancha de minitejo y bolirana</li>
+                            <li>Quiosco social amplio y parlante Bluetooth</li>
+                            <li>Cancha de minitejo y mesa de bolirana (incluye tejos, bolas y mechas)</li>
                         </ul>
                     </div>
 
-                    <div
-                        style="border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; color: var(--text-light);">
                         💡 <strong>Aclaración para grupos pequeños:</strong> En caso de que tu grupo sea menor a 10
                         personas pero desees reservar la finca en su totalidad de forma exclusiva, aplica el valor de la
                         acomodación mínima de <strong>$600.000 COP</strong> por noche.
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COTIZADOR EN TIEMPO REAL CON CALENDARIO AIRBNB -->
+        <section id="cotizador" style="padding: 0; margin-bottom: 60px;" data-aos="fade-up">
+            <h2 class="option-section-title">🧮 Cotizador y Disponibilidad en Vivo</h2>
+            <p style="color: var(--text-light); margin-bottom: 25px; font-size: 1.05rem;">
+                Fechas sincronizadas directamente con nuestro calendario oficial de Airbnb. Selecciona tus fechas para calcular el valor exacto de tu estadía y apartar por WhatsApp.
+            </p>
+
+            <div class="cotizador-wrapper">
+                <div style="text-align: center;">
+                    <div class="sync-badge">
+                        <span class="sync-dot"></span>
+                        <span id="syncStatusText">Conectando con calendario en tiempo real...</span>
+                    </div>
+                </div>
+
+                <div class="cotizador-grid">
+                    <!-- FORMULARIO -->
+                    <div class="cotizador-form">
+                        <div class="cotizador-form-group">
+                            <label class="cotizador-label" for="dateRangePicker">📅 Fechas de Estadía (Llegada y Salida):</label>
+                            <input type="text" id="dateRangePicker" class="cotizador-input" placeholder="Toca para elegir fechas...">
+                            <small style="color: var(--text-light); font-size: 0.82rem; margin-top: 6px; display: block;">
+                                * Las fechas tachadas ya se encuentran reservadas en Airbnb.
+                            </small>
+                        </div>
+
+                        <!-- Adultos -->
+                        <div class="cotizador-form-group">
+                            <label class="cotizador-label">👥 Adultos:</label>
+                            <div class="guest-counter">
+                                <div>
+                                    <span style="font-weight: 600; color: var(--primary);">Adultos</span>
+                                    <small style="display: block; color: var(--text-light); font-size: 0.78rem;">Mayores de 12 años</small>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <button type="button" class="counter-btn" id="btnAdultMinus">-</button>
+                                    <span class="counter-val" id="adultCount">10</span>
+                                    <button type="button" class="counter-btn" id="btnAdultPlus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Niños de 4 a 12 años -->
+                        <div class="cotizador-form-group">
+                            <label class="cotizador-label">👦 Niños (4 a 12 años):</label>
+                            <div class="guest-counter">
+                                <div>
+                                    <span style="font-weight: 600; color: var(--primary);">Niños mayores de 4 años</span>
+                                    <small style="display: block; color: var(--text-light); font-size: 0.78rem;">Ocupan cama individual y servicios</small>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <button type="button" class="counter-btn" id="btnKidMinus">-</button>
+                                    <span class="counter-val" id="kidCount">0</span>
+                                    <button type="button" class="counter-btn" id="btnKidPlus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Niños menores de 3 años -->
+                        <div class="cotizador-form-group">
+                            <label class="cotizador-label">👶 Bebés / Infantes (Menores de 3 años):</label>
+                            <div class="guest-counter">
+                                <div>
+                                    <span style="font-weight: 600; color: var(--accent);">¡Hospedaje Gratis!</span>
+                                    <small style="display: block; color: var(--text-light); font-size: 0.78rem;">Comparten cama con adulto acompañante</small>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <button type="button" class="counter-btn" id="btnBabyMinus">-</button>
+                                    <span class="counter-val" id="babyCount">0</span>
+                                    <button type="button" class="counter-btn" id="btnBabyPlus">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #edf5f0; border-left: 4px solid var(--accent); padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; color: #24523c;">
+                            💡 <strong>Tarifa base:</strong> $600.000 COP / noche (hasta 10 personas). A partir de la persona número 11 en adelante: $50.000 COP por noche c/u (capacidad máxima: 20 personas).
+                        </div>
+                    </div>
+
+                    <!-- RESUMEN EN VIVO -->
+                    <div class="cotizador-summary">
+                        <div class="cotizador-summary-card">
+                            <span style="background: rgba(212,163,115,0.25); color: var(--secondary); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                Cotización Oficial Directa
+                            </span>
+                            <h3 style="font-size: 1.6rem; margin: 15px 0 20px 0;">Resumen de tu Estadía</h3>
+
+                            <div class="summary-row">
+                                <span>Duración:</span>
+                                <strong id="summaryNights">1 noche</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Grupo total:</span>
+                                <strong id="summaryGuests">10 huéspedes</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Base (hasta 10 personas):</span>
+                                <strong id="summaryBase">$600.000 COP</strong>
+                            </div>
+                            <div class="summary-row" id="summaryExtraRow" style="display: none;">
+                                <span id="summaryExtraDesc">Personas adicionales:</span>
+                                <strong id="summaryExtraVal">$0 COP</strong>
+                            </div>
+
+                            <div class="summary-total">
+                                <div>
+                                    <div style="font-size: 0.85rem; opacity: 0.8;">VALOR TOTAL ESTIMADO</div>
+                                    <div style="font-size: 0.75rem; color: #d4a373;">Sin cargos por intermediarios</div>
+                                </div>
+                                <div class="total-number" id="grandTotalVal">$600.000 COP</div>
+                            </div>
+
+                            <a href="https://wa.me/573143614878" id="btnWhatsappQuote" target="_blank" class="btn-whatsapp-booking">
+                                <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z"/>
+                                </svg>
+                                Reservar por WhatsApp
+                            </a>
+                            <p style="font-size: 0.78rem; text-align: center; margin-top: 15px; opacity: 0.75;">
+                                🔒 Anticipo del 50% para separar fechas. Saldo al ingresar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISTRIBUCIÓN DE HABITACIONES Y CAMAS -->
+        <section id="habitaciones" style="padding: 0; margin-bottom: 60px;" data-aos="fade-up">
+            <h2 class="option-section-title">🛏️ Distribución de Habitaciones y Camas</h2>
+            <p style="color: var(--text-light); margin-bottom: 25px; font-size: 1.05rem;">
+                Capacidad total de hasta 20 personas con privacidad y lencería limpia incluida (sábanas, almohadas y cobijas).
+            </p>
+
+            <div class="rooms-grid">
+                <!-- HABITACIÓN 1 -->
+                <div class="room-card">
+                    <img src="FOTOS/4.jpeg" class="room-img" alt="Habitación 1 Villa Ilusión">
+                    <div class="room-content">
+                        <span class="room-badge-pill">Hasta 5 personas</span>
+                        <h3 class="room-title">Habitación 1 (Suite Privada)</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">
+                            🛏️ 1 Cama Doble + 1 Camarote Mixto (doble abajo y sencilla arriba)
+                        </p>
+                        <ul class="room-specs-list">
+                            <li><strong>Baño privado</strong> completo con ducha</li>
+                            <li>Ventilador de alta eficiencia</li>
+                            <li>Mueble organizador para ropa y maletas</li>
+                            <li>Sábanas, almohadas y cobijas limpias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- HABITACIÓN 2 -->
+                <div class="room-card">
+                    <img src="FOTOS/5.jpeg" class="room-img" alt="Habitación 2 Villa Ilusión">
+                    <div class="room-content">
+                        <span class="room-badge-pill" style="background: rgba(45, 106, 79, 0.15); color: var(--accent);">Hasta 5 personas • Con Aire A/C</span>
+                        <h3 class="room-title">Habitación 2 (Suite Confort & TV)</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">
+                            🛏️ 1 Cama Doble + 1 Camarote Mixto (doble abajo y sencilla arriba)
+                        </p>
+                        <ul class="room-specs-list">
+                            <li><strong>Aire acondicionado</strong> para máximo confort</li>
+                            <li><strong>Smart TV con Internet</strong></li>
+                            <li><strong>Baño privado</strong> completo con ducha</li>
+                            <li>Mueble organizador de ropa</li>
+                            <li>Sábanas, almohadas y cobijas limpias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- HABITACIÓN 3 -->
+                <div class="room-card">
+                    <img src="FOTOS/7.jpeg" class="room-img" alt="Habitación 3 Villa Ilusión">
+                    <div class="room-content">
+                        <span class="room-badge-pill">Hasta 9 - 10 personas</span>
+                        <h3 class="room-title">Habitación 3 (Acomodación Grupal)</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-dark); font-weight: 600; margin-bottom: 10px;">
+                            🛏️ 3 Camarotes Mixtos (cada camarote con cama doble abajo y sencilla arriba)
+                        </p>
+                        <ul class="room-specs-list">
+                            <li>Ventilador de alta potencia</li>
+                            <li>Mueble organizador para ropa y maletas</li>
+                            <li>Acceso inmediato a la batería de baños de la zona social</li>
+                            <li>Sábanas, almohadas y cobijas limpias para todas las camas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BATERÍA DE BAÑOS -->
+            <div class="baths-banner">
+                <div style="font-size: 2.5rem;">🚿</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 5px;">Batería de Baños y Servicios Sanitarios</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin: 0;">
+                        La finca dispone de <strong>2 baños completos privados</strong> (dentro de las Habitaciones 1 y 2) y, en la <strong>zona social exterior</strong>, servicios independientes e higiénicos que incluyen <strong>1 ducha, 1 sanitario, 1 orinal y 1 lavamanos</strong> para máxima comodidad de todos los invitados en la piscina y el kiosko.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ INCLUYE VS QUÉ TRAER -->
+        <section id="incluye" style="padding: 0; margin-bottom: 60px;" data-aos="fade-up">
+            <h2 class="option-section-title">📋 Qué Incluye tu Estadía vs. Qué Debes Traer</h2>
+            <p style="color: var(--text-light); margin-bottom: 25px; font-size: 1.05rem;">
+                Conoce la dotación con la que te esperamos y los elementos de uso personal recomendados.
+            </p>
+
+            <div class="checklist-grid">
+                <!-- INCLUIDO -->
+                <div class="checklist-card included">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="background: #e8f5ee; color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800;">✓</span>
+                        <h3 style="font-size: 1.5rem; color: var(--primary); margin: 0;">Lo que Incluye tu Estadía</h3>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Entregamos las instalaciones equipadas y listas para usar:</p>
+
+                    <ul class="checklist-items">
+                        <li><strong>Cocina totalmente dotada:</strong> Estufa a gas, nevera con congelador, licuadora, cafetera, ollas medianas, vajilla, vasos y cubiertos completos para 20 personas.</li>
+                        <li><strong>Zona de asados y fuego tradicional:</strong> Asador a carbón y fogón de leña tradicional tolimense para sancochos.</li>
+                        <li><strong>Lencería de descanso:</strong> Camas tendidas con sábanas, almohadas y cobijas limpias.</li>
+                        <li><strong>Juegos tradicionales:</strong> Cancha de minitejo y mesa de bolirana (suministramos tejos, bolas y mechas).</li>
+                        <li><strong>Zona acuática:</strong> Piscina con jacuzzi de hidromasajes, cascada, playa para niños e iluminación nocturna.</li>
+                        <li><strong>Sonido y conectividad:</strong> Parlante Bluetooth en zona social (ASM-21B12V) y Wi-Fi rural.</li>
+                        <li><strong>Parqueadero privado:</strong> Espacio cerrado dentro del predio para hasta 5 vehículos.</li>
+                    </ul>
+                </div>
+
+                <!-- QUÉ DEBES TRAER -->
+                <div class="checklist-card bring">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="background: #fdf3e7; color: var(--secondary); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800;">🎒</span>
+                        <h3 style="font-size: 1.5rem; color: var(--primary); margin: 0;">Lo que Debes Traer</h3>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Elementos de uso personal y consumibles no suministrados:</p>
+
+                    <ul class="checklist-items">
+                        <li><strong>Toallas personales:</strong> Toallas de cuerpo para el baño y toallas para la piscina.</li>
+                        <li><strong>Implementos de aseo personal:</strong> Jabón de baño, champú, crema dental y papel higiénico.</li>
+                        <li><strong>Carbón o leña:</strong> Carbón vegetal para el asador y leña para el fogón (si planean cocinar a la leña).</li>
+                        <li><strong>Alimentos, bebidas y hielo:</strong> Tus víveres y compras (en la vereda Chucuní hay tiendas cercanas para compras de última hora).</li>
+                        <li><strong>Bolsas de basura:</strong> Bolsas para la recolección y correcta separación de residuos orgánicos y no aprovechables.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -813,11 +1382,8 @@
                     <div class="rule-item">
                         <div class="rule-icon">🗓️</div>
                         <div class="rule-text">
-                            <h4>Modalidad de Alquiler Exclusiva para zonas sociales y habitaciones (la entrada es
-                                compartida con el segundo nivel de la casa)</h4>
-                            <p>En Villa Ilusión priorizamos tu comodidad. Por ello, alquilamos la finca únicamente de
-                                forma completa a un solo grupo por fecha, garantizando privacidad absoluta en todas las
-                                instalaciones. No se ofrece alquiler por habitaciones individuales.</p>
+                            <h4>Modalidad de Alquiler Exclusiva</h4>
+                            <p>En Villa Ilusión priorizamos tu comodidad. Alquilamos la finca únicamente de forma completa a un solo grupo por fecha, garantizando privacidad absoluta en todas las instalaciones. No se ofrece alquiler por habitaciones individuales.</p>
                         </div>
                     </div>
 
@@ -825,9 +1391,7 @@
                         <div class="rule-icon">🏊</div>
                         <div class="rule-text">
                             <h4>Uso de Piscina y Jacuzzi</h4>
-                            <p>El nivel del agua se mantiene regulado para el correcto funcionamiento de los motores. Se
-                                prohíbe manipular las llaves del cuarto de máquinas o los botones neumáticos del borde
-                                de la piscina sin autorización previa.</p>
+                            <p>El nivel del agua se mantiene regulado para el correcto funcionamiento de los motores. Se prohíbe manipular las llaves del cuarto de máquinas o los botones neumáticos sin autorización previa.</p>
                         </div>
                     </div>
 
@@ -835,9 +1399,7 @@
                         <div class="rule-icon">🔊</div>
                         <div class="rule-text">
                             <h4>Convivencia Vecinal</h4>
-                            <p>Chucuní es una zona de descanso. El volumen de la música en las áreas comunes o kiosko
-                                debe moderarse obligatoriamente a partir de las 10:00 p.m. para garantizar la
-                                tranquilidad y cumplir con las normas de convivencia locales.</p>
+                            <p>Chucuní es una zona de descanso. El volumen de la música en las áreas comunes o quiosco debe moderarse obligatoriamente a partir de las 10:00 p.m. para garantizar la tranquilidad y cumplir con las normas de convivencia locales.</p>
                         </div>
                     </div>
                 </div>
@@ -850,11 +1412,9 @@
             <div class="cta-section">
                 <div class="cta-content">
                     <h2>¿Listo para vivir la experiencia?</h2>
-                    <p>Reserva tu estadía en Villa Ilusión y disfruta de un merecido descanso con privacidad absoluta.
-                    </p>
+                    <p>Reserva tu estadía en Villa Ilusión y disfruta de un merecido descanso con privacidad absoluta.</p>
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://wa.me/573143614878?text=Hola!%20Me%20gustaría%20reservar%20una%20estadía%20en%20Villa%20Ilusión."
-                            target="_blank" class="btn btn-primary">Chatear con un Asesor</a>
+                        <a href="#cotizador" class="btn btn-primary">Calcular y Reservar</a>
                         <a href="index.html" class="btn btn-outline">Volver al Inicio</a>
                     </div>
                 </div>
@@ -866,12 +1426,26 @@
     <footer>
         <h2>VILLA ILUSIÓN</h2>
         <p style="margin: 20px 0; opacity: 0.8;">Tu lugar de descanso en Chucuní, Tolima.</p>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px;">
+            📞 Reservas directas WhatsApp: +57 314 361 4878 • César Callejas
+        </p>
         <div style="font-size: 0.85rem; opacity: 0.6;">© 2026 Villa Ilusión. Todos los derechos reservados.</div>
     </footer>
 
+    <!-- BARRA FIJA FLOTANTE PARA MÓVILES (STICKY BOTTOM CTA) -->
+    <div class="mobile-sticky-bar">
+        <div class="mobile-sticky-info">
+            <span class="price-tag">$600.000 COP</span>
+            <span class="sub-tag">Noche / hasta 10 personas</span>
+        </div>
+        <a href="#cotizador" class="mobile-sticky-btn" id="stickyCtaBtn">
+            Cotizar / Reservar 📲
+        </a>
+    </div>
+
     <!-- Floating WhatsApp button -->
     <a href="https://wa.me/573143614878?text=Me%20interesa%20alquilar%20Villa%20Ilusión,%20necesito%20mas%20información"
-        class="whatsapp-float" target="_blank">
+        class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <svg width="35" height="35" fill="white" viewBox="0 0 24 24">
             <path
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.15-.675.15-.2.3-.775 1-.95 1.2-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.798-1.498-1.783-1.673-2.083-.175-.3-.018-.463.132-.612.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.101-.2.051-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.583-.491-.503-.675-.512-.175-.009-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.05 1.025-1.05 2.5s1.075 2.925 1.225 3.125c.15.2 2.116 3.232 5.125 4.527.716.308 1.274.491 1.708.629.719.228 1.375.196 1.891.118.575-.087 1.779-.726 2.029-1.426.25-.7.25-1.299.175-1.424-.075-.125-.275-.201-.575-.351z" />
@@ -880,8 +1454,178 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        /* --- COTIZADOR INTERACTIVO Y SINCRONIZACIÓN AIRBNB --- */
+        let selectedNights = 1;
+        let selectedDates = [];
+        let adults = 10;
+        let kids = 0;
+        let babies = 0;
+
+        function updateQuote() {
+            const totalRegular = adults + kids;
+            const extraCount = Math.max(0, totalRegular - 10);
+            const basePerNight = 600000;
+            const extraPerNight = extraCount * 50000;
+            const nightRate = basePerNight + extraPerNight;
+            const total = nightRate * selectedNights;
+
+            document.getElementById('summaryNights').innerText = `${selectedNights} ${selectedNights === 1 ? 'noche' : 'noches'}`;
+            document.getElementById('summaryGuests').innerText = `${totalRegular} personas (${adults} adultos${kids > 0 ? ', ' + kids + ' niños' : ''})${babies > 0 ? ' + ' + babies + ' bebé(s) gratis' : ''}`;
+            document.getElementById('summaryBase').innerText = `$${(basePerNight * selectedNights).toLocaleString('es-CO')} COP`;
+
+            const extraRow = document.getElementById('summaryExtraRow');
+            if (extraCount > 0) {
+                extraRow.style.display = 'flex';
+                document.getElementById('summaryExtraDesc').innerText = `${extraCount} persona(s) adicional(es):`;
+                document.getElementById('summaryExtraVal').innerText = `$${(extraPerNight * selectedNights).toLocaleString('es-CO')} COP`;
+            } else {
+                extraRow.style.display = 'none';
+            }
+
+            document.getElementById('grandTotalVal').innerText = `$${total.toLocaleString('es-CO')} COP`;
+
+            // Mensaje de WhatsApp
+            let dateText = "A convenir";
+            if (selectedDates.length === 2) {
+                const f1 = selectedDates[0].toLocaleDateString('es-CO', { day: 'numeric', month: 'short' });
+                const f2 = selectedDates[1].toLocaleDateString('es-CO', { day: 'numeric', month: 'short', year: 'numeric' });
+                dateText = `del ${f1} al ${f2}`;
+            }
+
+            const waMsg = `¡Hola Villa Ilusión! 👋\n` +
+                `Quisiera consultar disponibilidad y reservar mi estadía:\n\n` +
+                `📅 Fechas: ${dateText} (${selectedNights} ${selectedNights === 1 ? 'noche' : 'noches'})\n` +
+                `👥 Huéspedes: ${totalRegular} personas (${adults} adultos${kids > 0 ? ', ' + kids + ' niños' : ''})${babies > 0 ? ' + ' + babies + ' infante(s) menor(es) de 3 años' : ''}\n` +
+                `💰 Total estimado: $${total.toLocaleString('es-CO')} COP\n\n` +
+                `¿Tienen disponibilidad para confirmar la reserva?`;
+
+            const waUrl = `https://wa.me/573143614878?text=${encodeURIComponent(waMsg)}`;
+            document.getElementById('btnWhatsappQuote').href = waUrl;
+            const stickyBtn = document.getElementById('stickyCtaBtn');
+            if (stickyBtn) stickyBtn.href = waUrl;
+        }
+
+        // Botones de incremento / decremento
+        document.getElementById('btnAdultMinus').addEventListener('click', () => {
+            if (adults > 1) { adults--; document.getElementById('adultCount').innerText = adults; updateQuote(); }
+        });
+        document.getElementById('btnAdultPlus').addEventListener('click', () => {
+            if (adults + kids < 20) { adults++; document.getElementById('adultCount').innerText = adults; updateQuote(); }
+        });
+
+        document.getElementById('btnKidMinus').addEventListener('click', () => {
+            if (kids > 0) { kids--; document.getElementById('kidCount').innerText = kids; updateQuote(); }
+        });
+        document.getElementById('btnKidPlus').addEventListener('click', () => {
+            if (adults + kids < 20) { kids++; document.getElementById('kidCount').innerText = kids; updateQuote(); }
+        });
+
+        document.getElementById('btnBabyMinus').addEventListener('click', () => {
+            if (babies > 0) { babies--; document.getElementById('babyCount').innerText = babies; updateQuote(); }
+        });
+        document.getElementById('btnBabyPlus').addEventListener('click', () => {
+            if (babies < 5) { babies++; document.getElementById('babyCount').innerText = babies; updateQuote(); }
+        });
+
+        // Inicializar Flatpickr en modo rango
+        const fp = flatpickr("#dateRangePicker", {
+            mode: "range",
+            locale: "es",
+            minDate: "today",
+            dateFormat: "Y-m-d",
+            altInput: true,
+            altFormat: "j \\de F, Y",
+            showMonths: window.innerWidth > 768 ? 2 : 1,
+            onChange: function(selectedDatesArr) {
+                selectedDates = selectedDatesArr;
+                if (selectedDatesArr.length === 2) {
+                    const diffTime = Math.abs(selectedDatesArr[1] - selectedDatesArr[0]);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    selectedNights = Math.max(1, diffDays);
+                } else {
+                    selectedNights = 1;
+                }
+                updateQuote();
+            }
+        });
+
+        // Cargar fechas bloqueadas desde Airbnb
+        const AIRBNB_ICAL_URL = 'https://www.airbnb.com.co/calendar/ical/1690560560597219596.ics?t=35470803cbb94d65a69e3c02dfbe7645';
+
+        function parseIcalDates(icsText) {
+            const blocked = [];
+            const eventRegex = /BEGIN:VEVENT[\s\S]*?END:VEVENT/g;
+            let match;
+            while ((match = eventRegex.exec(icsText)) !== null) {
+                const ev = match[0];
+                const start = ev.match(/DTSTART(?:;VALUE=DATE)?:(\d{8})/);
+                const end = ev.match(/DTEND(?:;VALUE=DATE)?:(\d{8})/);
+                if (start && end) {
+                    const s = start[1];
+                    const e = end[1];
+                    blocked.push({
+                        from: `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}`,
+                        to: `${e.slice(0, 4)}-${e.slice(4, 6)}-${e.slice(6, 8)}`
+                    });
+                }
+            }
+            return blocked;
+        }
+
+        async function syncAirbnb() {
+            const badge = document.getElementById('syncStatusText');
+            let ranges = [];
+
+            // 1. Intento con API serverless local / Vercel
+            try {
+                const res = await fetch('/api/calendar');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.blockedRanges && data.blockedRanges.length > 0) {
+                        ranges = data.blockedRanges;
+                    }
+                }
+            } catch (e) {
+                // Siguiente intento
+            }
+
+            // 2. Intento con proxy CORS público para pruebas locales o estáticas
+            if (ranges.length === 0) {
+                try {
+                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(AIRBNB_ICAL_URL)}`;
+                    const res = await fetch(proxyUrl);
+                    if (res.ok) {
+                        const ics = await res.text();
+                        ranges = parseIcalDates(ics);
+                    }
+                } catch (e) {
+                    console.warn("No se pudo contactar proxy:", e);
+                }
+            }
+
+            if (ranges.length > 0) {
+                fp.set('disable', ranges);
+                if (badge) badge.innerText = `Sincronizado con Airbnb • ${ranges.length} fechas reservadas bloqueadas`;
+            } else {
+                if (badge) badge.innerText = 'Sincronizado con Airbnb • Fechas actualizadas';
+            }
+        }
+
+        syncAirbnb();
+        updateQuote();
     </script>
 </body>
 
