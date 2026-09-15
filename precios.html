@@ -10,7 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://villa-ilusion.vercel.app/precios.html">
     <meta property="og:title" content="Tarifas y Reservas | Villa Ilusión">
-    <meta property="og:description" content="Consulta las tarifas y planes de alojamiento en Villa Ilusión. Reserva tu estadía en nuestro paraíso.">
+    <meta property="og:description"
+        content="Consulta las tarifas y planes de alojamiento en Villa Ilusión. Reserva tu estadía en nuestro paraíso.">
     <meta property="og:image" content="https://villa-ilusion.vercel.app/images/vista-previa.jpg">
     <meta property="og:site_name" content="Villa Ilusión">
 
@@ -46,7 +47,8 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
+        html,
+        body {
             overflow-x: hidden;
             width: 100%;
         }
@@ -114,7 +116,10 @@
         .page-header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: url('FOTOS/1.png') center/cover no-repeat;
             opacity: 0.15;
             z-index: 0;
@@ -208,7 +213,10 @@
         .villa-image-side::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(to right, transparent 50%, rgba(15, 42, 31, 0.4));
         }
 
@@ -347,7 +355,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0; /* Oculta por defecto hasta que exista */
+            opacity: 0;
+            /* Oculta por defecto hasta que exista */
             transition: opacity 0.3s;
         }
 
@@ -368,9 +377,17 @@
             z-index: 10;
         }
 
-        .room-badge.econ { background-color: #2a6f43; }
-        .room-badge.prem { background-color: #8c1c1c; }
-        .room-badge.std { background-color: #bfa322; }
+        .room-badge.econ {
+            background-color: #2a6f43;
+        }
+
+        .room-badge.prem {
+            background-color: #8c1c1c;
+        }
+
+        .room-badge.std {
+            background-color: #bfa322;
+        }
 
         .room-content {
             padding: 30px;
@@ -511,7 +528,10 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: url('FOTOS/1.png') center/cover no-repeat;
             opacity: 0.08;
         }
@@ -609,9 +629,11 @@
             .villa-full-card {
                 grid-template-columns: 1fr;
             }
+
             .villa-image-side {
                 min-height: 300px;
             }
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
@@ -621,39 +643,50 @@
             nav {
                 padding: 15px 25px;
             }
+
             .logo {
                 font-size: 1.2rem;
             }
+
             .page-header {
                 padding: 120px 5% 50px 5%;
             }
+
             .page-header h1 {
                 font-size: 2rem;
             }
+
             .page-header p {
                 font-size: 1rem;
             }
+
             .container {
                 padding: 40px 15px;
             }
+
             .villa-details-side {
                 padding: 30px 20px;
             }
+
             .villa-details-side h3 {
                 font-size: 1.8rem;
             }
+
             .btn-outline {
                 margin-left: 0;
                 margin-top: 15px;
                 display: block;
             }
+
             .btn {
                 width: 100%;
                 text-align: center;
             }
+
             .room-card {
                 max-width: 100%;
             }
+
             footer {
                 padding: 40px 5%;
             }
@@ -664,7 +697,9 @@
 <body>
 
     <nav id="navbar">
-        <a href="index.html" class="logo-link"><div class="logo">VILLA ILUSIÓN</div></a>
+        <a href="index.html" class="logo-link">
+            <div class="logo">VILLA ILUSIÓN</div>
+        </a>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="precios.html" class="nav-link">Tarifas</a>
@@ -678,17 +713,20 @@
         <div class="header-content" data-aos="fade-up">
             <span class="welcome-badge">Bienvenidos a Villa Ilusión</span>
             <h1>Tarifas y Reserva</h1>
-            <p>Chucuní, Tolima — Tu paraíso de descanso y diversión. Conoce nuestras modalidades de alquiler oficiales.</p>
+            <p>Chucuní, Tolima — Tu paraíso de descanso y diversión. Conoce nuestras modalidades de alquiler oficiales.
+            </p>
         </div>
     </header>
 
     <main class="container">
-        
+
         <!-- VILLA COMPLETA -->
         <section style="padding: 0; margin-bottom: 80px;" data-aos="fade-up">
             <h2 class="option-section-title">🏡 Alquiler de la Villa Completa</h2>
             <p style="color: var(--text-light); margin-bottom: 30px; font-size: 1.05rem;">
-                Disfruta de la privacidad absoluta de toda la propiedad. La reserva te da acceso exclusivo a las 3 habitaciones, cocina totalmente equipada, piscina con playa para niños, jacuzzi con hidromasajes, chorros de cascada, kiosko social, cancha de minitejo y bolirana.
+                Disfruta de la privacidad absoluta de toda el primer nivel de la propiedad. La reserva te da acceso
+                exclusivo y privado a las 3 habitaciones, cocina totalmente equipada, piscina con playa para niños,
+                jacuzzi con hidromasajes, chorros de cascada, kiosko social, bolirana.
             </p>
 
             <div class="villa-full-card">
@@ -697,15 +735,18 @@
                     <div>
                         <span class="badge-exclusive">Exclusividad Total</span>
                         <h3>Villa Completa</h3>
-                        
+
                         <div class="price-box">
-                            <div class="price-value">$50.000 <span>COP / Persona la noche</span></div>
-                            <div class="price-subinfo"><strong>Capacidad mínima requerida:</strong> 10 personas</div>
+                            <div class="price-value">$600.000 <span>COP / Noche (hasta 10 personas)</span></div>
+                            <div class="price-subinfo"><strong>Acomodación mínima:</strong> 10 personas ($600.000 COP) |
+                                <strong>Huésped adicional:</strong> $50.000 COP / noche</div>
                         </div>
 
                         <ul class="features-list">
                             <li>Privacidad absoluta de toda la propiedad (sin compartir con otros huéspedes)</li>
-                            <li><strong>Persona adicional (a partir de la número 11 en adelante):</strong> $50.000 COP por noche (capacidad máxima de hasta 20 personas)</li>
+                            <li><strong>Acomodación mínima:</strong> 10 personas por valor de $600.000 COP la noche</li>
+                            <li><strong>Huésped adicional (a partir de la número 11 en adelante):</strong> $50.000 COP
+                                por noche (capacidad máxima de hasta 20 personas)</li>
                             <li>3 Habitaciones amplias y equipadas</li>
                             <li>Cocina totalmente equipada</li>
                             <li>Piscina con playa para niños y cascada</li>
@@ -715,8 +756,11 @@
                         </ul>
                     </div>
 
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; color: var(--text-light);">
-                        💡 <strong>Aclaración para grupos pequeños:</strong> En caso de que tu grupo sea menor a 10 personas pero desees reservar la finca en su totalidad de forma exclusiva, el valor mínimo por noche será de <strong>$500.000 COP</strong>.
+                    <div
+                        style="border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+                        💡 <strong>Aclaración para grupos pequeños:</strong> En caso de que tu grupo sea menor a 10
+                        personas pero desees reservar la finca en su totalidad de forma exclusiva, aplica el valor de la
+                        acomodación mínima de <strong>$600.000 COP</strong> por noche.
                     </div>
                 </div>
             </div>
@@ -725,16 +769,18 @@
         <!-- POLÍTICAS Y REGLAS -->
         <section style="padding: 0;">
             <div class="info-grid">
-                
+
                 <!-- POLÍTICA DE NIÑOS -->
                 <div class="info-card" data-aos="fade-right">
                     <h3>👶 Política de Niños</h3>
-                    
+
                     <div class="rule-item">
                         <div class="rule-icon">👶</div>
                         <div class="rule-text">
                             <h4>Menores de 3 años (Gratis)</h4>
-                            <p>No tienen costo de hospedaje, bajo la condición obligatoria de compartir la cama con un adulto acompañante (no ocupan cama individual extra ni sábanas adicionales de la finca).</p>
+                            <p>No tienen costo de hospedaje, bajo la condición obligatoria de compartir la cama con un
+                                adulto acompañante (no ocupan cama individual extra ni sábanas adicionales de la finca).
+                            </p>
                         </div>
                     </div>
 
@@ -742,7 +788,10 @@
                         <div class="rule-icon">👦</div>
                         <div class="rule-text">
                             <h4>Niños de 4 años en adelante (Tarifa Plena)</h4>
-                            <p>Pagan tarifa completa de huésped ($50.000 COP). Esto se debe al uso activo de las instalaciones (piscina, zonas de juego), consumo de servicios públicos y asignación de cama individual con su respectivo tendido de sábanas y almohadas.</p>
+                            <p>Cuentan dentro del cupo de huéspedes de la acomodación mínima (o como huésped adicional a
+                                $50.000 COP por noche). Esto se debe al uso activo de las instalaciones (piscina, zonas
+                                de juego), consumo de servicios públicos y asignación de cama individual con su
+                                respectivo tendido de sábanas y almohadas.</p>
                         </div>
                     </div>
                 </div>
@@ -755,15 +804,19 @@
                         <div class="rule-icon">🕒</div>
                         <div class="rule-text">
                             <h4>Horarios de Ingreso y Salida</h4>
-                            <p><strong>Check-in (Entrada):</strong> 2:30 p.m. | <strong>Check-out (Salida):</strong> 12:00 m.</p>
+                            <p><strong>Check-in (Entrada):</strong> 2:30 p.m. | <strong>Check-out (Salida):</strong>
+                                12:00 m.</p>
                         </div>
                     </div>
 
                     <div class="rule-item">
                         <div class="rule-icon">🗓️</div>
                         <div class="rule-text">
-                            <h4>Modalidad de Alquiler Exclusiva</h4>
-                            <p>En Villa Ilusión priorizamos tu comodidad. Por ello, alquilamos la finca únicamente de forma completa a un solo grupo por fecha, garantizando privacidad absoluta en todas las instalaciones. No se ofrece alquiler por habitaciones individuales.</p>
+                            <h4>Modalidad de Alquiler Exclusiva para zonas sociales y habitaciones (la entrada es
+                                compartida con el segundo nivel de la casa)</h4>
+                            <p>En Villa Ilusión priorizamos tu comodidad. Por ello, alquilamos la finca únicamente de
+                                forma completa a un solo grupo por fecha, garantizando privacidad absoluta en todas las
+                                instalaciones. No se ofrece alquiler por habitaciones individuales.</p>
                         </div>
                     </div>
 
@@ -771,7 +824,9 @@
                         <div class="rule-icon">🏊</div>
                         <div class="rule-text">
                             <h4>Uso de Piscina y Jacuzzi</h4>
-                            <p>El nivel del agua se mantiene regulado para el correcto funcionamiento de los motores. Se prohíbe manipular las llaves del cuarto de máquinas o los botones neumáticos del borde de la piscina sin autorización previa.</p>
+                            <p>El nivel del agua se mantiene regulado para el correcto funcionamiento de los motores. Se
+                                prohíbe manipular las llaves del cuarto de máquinas o los botones neumáticos del borde
+                                de la piscina sin autorización previa.</p>
                         </div>
                     </div>
 
@@ -779,7 +834,9 @@
                         <div class="rule-icon">🔊</div>
                         <div class="rule-text">
                             <h4>Convivencia Vecinal</h4>
-                            <p>Chucuní es una zona de descanso. El volumen de la música en las áreas comunes o kiosko debe moderarse obligatoriamente a partir de las 10:00 p.m. para garantizar la tranquilidad y cumplir con las normas de convivencia locales.</p>
+                            <p>Chucuní es una zona de descanso. El volumen de la música en las áreas comunes o kiosko
+                                debe moderarse obligatoriamente a partir de las 10:00 p.m. para garantizar la
+                                tranquilidad y cumplir con las normas de convivencia locales.</p>
                         </div>
                     </div>
                 </div>
@@ -792,9 +849,11 @@
             <div class="cta-section">
                 <div class="cta-content">
                     <h2>¿Listo para vivir la experiencia?</h2>
-                    <p>Reserva tu estadía en Villa Ilusión y disfruta de un merecido descanso con privacidad absoluta.</p>
+                    <p>Reserva tu estadía en Villa Ilusión y disfruta de un merecido descanso con privacidad absoluta.
+                    </p>
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://wa.me/573143614878?text=Hola!%20Me%20gustaría%20reservar%20una%20estadía%20en%20Villa%20Ilusión." target="_blank" class="btn btn-primary">Chatear con un Asesor</a>
+                        <a href="https://wa.me/573143614878?text=Hola!%20Me%20gustaría%20reservar%20una%20estadía%20en%20Villa%20Ilusión."
+                            target="_blank" class="btn btn-primary">Chatear con un Asesor</a>
                         <a href="index.html" class="btn btn-outline">Volver al Inicio</a>
                     </div>
                 </div>
