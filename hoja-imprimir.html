@@ -37,8 +37,10 @@
         .page-container {
             background-color: #ffffff;
             width: 21cm;
-            min-height: 27.9cm; /* Carta es 27.9cm */
-            padding: 1.5cm; /* Reducido para ganar espacio */
+            min-height: 27.9cm;
+            /* Carta es 27.9cm */
+            padding: 1.5cm;
+            /* Reducido para ganar espacio */
             margin: 1cm auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
@@ -49,13 +51,16 @@
         .header {
             text-align: center;
             border-bottom: 3px solid var(--primary);
-            padding-bottom: 10px; /* Reducido */
-            margin-bottom: 15px; /* Reducido */
+            padding-bottom: 10px;
+            /* Reducido */
+            margin-bottom: 15px;
+            /* Reducido */
         }
 
         .header h1 {
             color: var(--primary);
-            font-size: 2.2rem; /* Reducido */
+            font-size: 2.2rem;
+            /* Reducido */
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -63,7 +68,8 @@
 
         .header h2 {
             color: var(--secondary);
-            font-size: 1.2rem; /* Reducido */
+            font-size: 1.2rem;
+            /* Reducido */
             margin: 5px 0 0 0;
             font-weight: 600;
         }
@@ -72,14 +78,17 @@
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px; /* Reducido */
-            margin-bottom: 15px; /* Reducido */
+            gap: 15px;
+            /* Reducido */
+            margin-bottom: 15px;
+            /* Reducido */
         }
 
         .info-block {
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            padding: 15px; /* Reducido */
+            padding: 15px;
+            /* Reducido */
             page-break-inside: avoid;
         }
 
@@ -89,9 +98,11 @@
 
         .info-block h3 {
             color: var(--primary);
-            font-size: 1.15rem; /* Reducido */
+            font-size: 1.15rem;
+            /* Reducido */
             margin-top: 0;
-            margin-bottom: 10px; /* Reducido */
+            margin-bottom: 10px;
+            /* Reducido */
             display: flex;
             align-items: center;
             gap: 8px;
@@ -99,13 +110,17 @@
             padding-bottom: 8px;
         }
 
-        .info-block p, .info-block ul, .info-block ol {
+        .info-block p,
+        .info-block ul,
+        .info-block ol {
             margin: 0 0 8px 0;
-            font-size: 0.95rem; /* Letra un poco más pequeña */
+            font-size: 0.95rem;
+            /* Letra un poco más pequeña */
             line-height: 1.4;
         }
 
-        .info-block ul, .info-block ol {
+        .info-block ul,
+        .info-block ol {
             padding-left: 20px;
         }
 
@@ -128,7 +143,10 @@
 
         /* --- Configuración exclusiva para imprimir --- */
         @media print {
-            body { background-color: #ffffff; }
+            body {
+                background-color: #ffffff;
+            }
+
             .page-container {
                 margin: 0;
                 padding: 1cm;
@@ -137,7 +155,10 @@
                 width: 100%;
                 min-height: auto;
             }
-            .no-print { display: none !important; }
+
+            .no-print {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -163,7 +184,8 @@
                         Clave: <strong>Nohayinternet</strong>
                     </div>
                     <div>
-                        <img src="QR_WIFI1.png" alt="QR WiFi" style="width: 140px; height: 140px; border-radius: 10px; border: 1px solid #ccc; padding: 5px; background: white; object-fit: contain;">
+                        <img src="QR_WIFI1.png" alt="QR WiFi"
+                            style="width: 140px; height: 140px; border-radius: 10px; border: 1px solid #ccc; padding: 5px; background: white; object-fit: contain;">
                     </div>
                 </div>
             </div>
@@ -186,12 +208,14 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <ul>
                         <li>Antes de ingresar a la piscina se recomienda <strong>ducharse</strong>.</li>
-                        <li>En caso de ingresar balones, flotadores y demás, por favor asegúrate de que estén limpios.</li>
+                        <li>En caso de ingresar balones, flotadores y demás, por favor asegúrate de que estén limpios.
+                        </li>
                         <li>Totalmente prohibido ingresar vasos, botellas de vidrio o alimentos al agua.</li>
                         <li>Los niños deben estar bajo supervisión de un adulto en todo momento.</li>
                     </ul>
                     <div>
-                        <strong style="display:block; margin-bottom: 5px; font-size: 0.95rem;">Botones en el suelo de la piscina:</strong>
+                        <strong style="display:block; margin-bottom: 5px; font-size: 0.95rem;">Botones en el suelo de la
+                            piscina:</strong>
                         <ol>
                             <li>Habilita los chorros.</li>
                             <li>Habilita el jacuzzi.</li>
@@ -205,10 +229,15 @@
             <div class="info-block full-width">
                 <h3>📜 Reglas de la Casa</h3>
                 <ul>
-                    <li><strong>Check-in / Check-out:</strong> La hora de entrada es a las <strong>2:30 PM</strong> y la de salida es a las <strong>12:00 M</strong>. Asegúrate de entregar las llaves a la persona encargada.</li>
+                    <li><strong>Check-in / Check-out:</strong> La hora de entrada es a las <strong>2:00 PM</strong> y la
+                        de salida es a las <strong>12:00 M</strong>. Asegúrate de entregar las llaves a la persona
+                        encargada.</li>
                     <li><strong>Ruido y Música:</strong> Por respeto a los vecinos, modera el volumen de la música
                         después de las 10:00 PM. Eventos permitidos máximo hasta las 2:00 AM.</li>
-                    <li><strong>Aseo y Basuras:</strong> En la cocina hay dos canecas: una para <strong>residuos orgánicos</strong> (ej. restos de comida, cáscaras) y otra para <strong>residuos no aprovechables</strong> (ej. servilletas sucias, empaques). Por favor separa la basura correctamente.</li>
+                    <li><strong>Aseo y Basuras:</strong> En la cocina hay dos canecas: una para <strong>residuos
+                            orgánicos</strong> (ej. restos de comida, cáscaras) y otra para <strong>residuos no
+                            aprovechables</strong> (ej. servilletas sucias, empaques). Por favor separa la basura
+                        correctamente.</li>
                     <li><strong>Mascotas:</strong> Son bienvenidas, pero eres responsable de recoger sus desechos y de
                         cualquier daño que puedan causar.</li>
                 </ul>
